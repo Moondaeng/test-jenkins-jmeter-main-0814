@@ -96,15 +96,17 @@ pipeline {
                 
                 perfReport(
                     sourceDataFiles: 'results.jtl',
+                    parsers: [
+                         [$class: 'JMeterParser', glob: 'results.jtl']
+                     ]
+
                     errorFailedThreshold: 1,
                     errorUnstableThreshold: 0.5,
 
                     averageFailedThreshold: '1000',
                     averageUnstableThreshold: '800',
 
-                    parsers: [
-                         [$class: 'JMeterParser', glob: 'results.jtl']
-                     ]
+
                  )
     
             }
