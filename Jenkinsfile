@@ -61,7 +61,7 @@ pipeline {
 
                     // Cleanup old results
                     if (isWindows) {
-                        bat 'if exist "results.jtl" del /F /Q "results.jtl"'
+                        bat 'if exist "results3.jtl" del /F /Q "results3.jtl"'
                         bat 'if exist "reports" rmdir /S /Q "reports"'
                     } else {
                         sh "rm -f results.jtl"
