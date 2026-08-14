@@ -73,7 +73,7 @@ pipeline {
                         bat """
                         ${jmeterCmd} -n ^
                           -t "${env.JMX_FILE}" ^
-                          -l results.jtl ^
+                          -l results3.jtl ^
                           -e -o reports
                         """
                     } else {
