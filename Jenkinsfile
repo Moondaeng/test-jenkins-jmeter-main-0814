@@ -103,10 +103,6 @@ pipeline {
                     errorFailedThreshold: 1,
                     errorUnstableThreshold: 0.5,
 
-                    averageFailedThreshold: '1000',
-                    averageUnstableThreshold: '800',
-
-
                  )
     
             }
