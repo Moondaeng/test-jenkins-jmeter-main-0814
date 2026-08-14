@@ -61,7 +61,7 @@ pipeline {
 
                     // Cleanup old results
                     if (isWindows) {
-                        bat 'if exist "results3.jtl" del /F /Q "results3.jtl"'
+                        bat 'if exist "results.jtl" del /F /Q "results.jtl"'
                         bat 'if exist "reports" rmdir /S /Q "reports"'
                     } else {
                         sh "rm -f results.jtl"
@@ -73,7 +73,7 @@ pipeline {
                         bat """
                         ${jmeterCmd} -n ^
                           -t "${env.JMX_FILE}" ^
-                          -l results3.jtl ^
+                          -l results.jtl ^
                           -e -o reports
                         """
                     } else {
@@ -89,7 +89,7 @@ pipeline {
         }
 
         //TODO3: Performance Plugin 설치 후 활성화
-        /*
+        
         stage('Publish Performance Report') {
             steps {
                 // perfReport sources: 'results.jtl'
@@ -103,7 +103,7 @@ pipeline {
     
             }
         }
-        */
+        
 
 
         stage('Archive Results') {
