@@ -44,7 +44,7 @@ pipeline {
                 }
             }
         }
-  
+
         stage('Run Performance Test') {
             steps {
                 script {
@@ -95,8 +95,14 @@ pipeline {
                 // perfReport sources: 'results.jtl'
                 
                 perfReport(
-                     sourceDataFiles: 'results.jtl',
-                     parsers: [
+                    sourceDataFiles: 'results.jtl',
+                    errorFailedThreshold: 1,
+                    errorUnstableThreshold: 0.5,
+
+                    averageFailedThreshold: '1000',
+                    averageUnstableThreshold: '800',
+
+                    parsers: [
                          [$class: 'JMeterParser', glob: 'results.jtl']
                      ]
                  )
